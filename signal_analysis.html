@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="Dual-Scale Coordinate Encoding Analysis of 3I/ATLAS Signal">
+        <meta name="author" content="3I/ATLAS Analysis Contributors">
+
+        <title>3I/ATLAS - Signal Analysis</title>
+        <link rel="icon" type="image/x-icon" href="comet.ico">
+
+        <!-- CSS FILES -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;700&display=swap" rel="stylesheet">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap-icons.css" rel="stylesheet">
+        <link href="css/apexcharts.css" rel="stylesheet">
+        <link href="css/tooplate-mini-finance.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <header class="navbar sticky-top flex-md-nowrap">
+            <div class="col-md-3 col-lg-3 me-0 px-3 fs-6">
+                <a class="navbar-brand" href="index.html">
+                    3I/ATLAS
+                </a>
+            </div>
+
+            <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-nav me-lg-2">
+                <div class="nav-item text-nowrap d-flex align-items-center">
+                    <div class="dropdown ps-3">
+                        <a class="nav-link dropdown-toggle text-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="navbarLightDropdownMenuLink">
+                            <i class="bi-bell"></i>
+                            <span class="position-absolute start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
+                                <span class="visually-hidden">New alerts</span>
+                            </span>
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-lg-end notifications-block-wrap bg-white shadow" aria-labelledby="navbarLightDropdownMenuLink">
+                            <small>Notifications</small>
+                            <li class="notifications-block border-bottom pb-2 mb-2">
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="notifications-icon-wrap bg-success">
+                                        <i class="notifications-icon bi-newspaper"></i>
+                                    </div>
+                                    <div>
+                                        <span>Relevant publications updated.</span>
+                                        <p>September 3, 2025</p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="container-fluid">
+            <div class="row">
+                <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
+                    <div class="position-sticky py-4 px-3 sidebar-sticky">
+                        <ul class="nav flex-column h-100">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">
+                                    <i class="bi-house-fill me-2"></i>
+                                    Home
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="status.html">
+                                    <i class="bi-globe me-2"></i>
+                                    Current Status
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="properties.html">
+                                    <i class="bi-binoculars-fill me-2"></i>
+                                    Physical Properties
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="orbit.html">
+                                    <i class="bi-circle me-2"></i>
+                                    Orbital Properties
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="observing.html">
+                                    <i class="bi-compass me-2"></i>
+                                    Observing Tools
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="coordinated.html">
+                                    <i class="bi-cursor me-2"></i>
+                                    Coordinated Observations
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="data.html">
+                                    <i class="bi-graph-up me-2"></i>
+                                    Available Data
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="pubs.html">
+                                    <i class="bi-newspaper me-2"></i>
+                                    Relevant Publications
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="signal_analysis.html">
+                                    <i class="bi-cpu me-2"></i>
+                                    Signal Analysis
+                                </a>
+                            </li>
+
+                            <li class="nav-item border-top mt-auto pt-2">
+                                <a class="nav-link" href="contact.html">
+                                    <i class="bi-envelope me-2"></i>
+                                    Contact
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
+                    <div class="title-group mb-3">
+                        <h1 class="h2 mb-0">Signal Analysis: Dual-Scale Coordinate Encoding</h1>
+                        <small>Independent analysis of 3I/ATLAS signal data revealing coordinate encoding patterns</small>
+                    </div>
+
+                    <div class="row my-4">
+                        <div class="col-lg-12 col-12">
+                            <div class="custom-block bg-white">
+                                <h5 class="mb-4">Executive Summary</h5>
+                                <p class="text-muted">
+                                    This independent analysis reports the discovery of a <strong>dual-scale coordinate encoding pattern</strong> 
+                                    in the 3I/ATLAS signal data. Using logarithmic encoding analysis and constant ratio detection, we have 
+                                    identified two distinct coordinate encodings that point to both galactic and extragalactic objects.
+                                </p>
+                                <p class="text-muted">
+                                    <strong>Note:</strong> The interpretations presented here are speculative and require further verification. 
+                                    While the statistical probability of random matches is extremely low (~2.8×10⁻¹³), this does not prove 
+                                    intentional encoding.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row my-4">
+                        <div class="col-lg-6 col-12">
+                            <div class="custom-block bg-white">
+                                <h5 class="mb-4">Galactic Scale Encoding (Phi+Log3)</h5>
+                                
+                                <p class="d-flex flex-wrap mb-2">
+                                    <strong>Decoded Coordinate:</strong>
+                                    <span class="ms-2">RA 69.797974°, Dec 11.250000°</span>
+                                </p>
+
+                                <p class="d-flex flex-wrap mb-2">
+                                    <strong>Matched Object:</strong>
+                                    <span class="ms-2">HIP 21684 (HD 286941)</span>
+                                </p>
+
+                                <p class="d-flex flex-wrap mb-2">
+                                    <strong>Object Type:</strong>
+                                    <span class="ms-2">G5 Emission Star</span>
+                                </p>
+
+                                <p class="d-flex flex-wrap mb-2">
+                                    <strong>Distance:</strong>
+                                    <span class="ms-2">491.95 light-years</span>
+                                </p>
+
+                                <p class="d-flex flex-wrap mb-2">
+                                    <strong>Separation:</strong>
+                                    <span class="ms-2">1.73 arcmin</span>
+                                </p>
+
+                                <p class="d-flex flex-wrap mb-2">
+                                    <strong>Statistical Significance:</strong>
+                                    <span class="ms-2">p < 0.001 (***)</span>
+                                </p>
+
+                                <p class="d-flex flex-wrap mb-2">
+                                    <strong>Radio Source:</strong>
+                                    <span class="ms-2">NVSS J043903+111800 (87.44 mJy)</span>
+                                </p>
+
+                                <p class="d-flex flex-wrap mb-2">
+                                    <strong>Encoding Entropy:</strong>
+                                    <span class="ms-2">0.484256</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-12">
+                            <div class="custom-block bg-white">
+                                <h5 class="mb-4">Extragalactic Scale Encoding (Diophantine v3)</h5>
+                                
+                                <p class="d-flex flex-wrap mb-2">
+                                    <strong>Decoded Coordinate:</strong>
+                                    <span class="ms-2">RA 72.888794°, Dec 9.364471°</span>
+                                </p>
+
+                                <p class="d-flex flex-wrap mb-2">
+                                    <strong>Matched Object:</strong>
+                                    <span class="ms-2">LEDA 1363602</span>
+                                </p>
+
+                                <p class="d-flex flex-wrap mb-2">
+                                    <strong>Object Type:</strong>
+                                    <span class="ms-2">Galaxy (G)</span>
+                                </p>
+
+                                <p class="d-flex flex-wrap mb-2">
+                                    <strong>Distance:</strong>
+                                    <span class="ms-2">720 million light-years</span>
+                                </p>
+
+                                <p class="d-flex flex-wrap mb-2">
+                                    <strong>Redshift:</strong>
+                                    <span class="ms-2">z = 0.053915</span>
+                                </p>
+
+                                <p class="d-flex flex-wrap mb-2">
+                                    <strong>Separation:</strong>
+                                    <span class="ms-2">3.51 arcmin</span>
+                                </p>
+
+                                <p class="d-flex flex-wrap mb-2">
+                                    <strong>Radio Source:</strong>
+                                    <span class="ms-2">NVSS J045150+092332 (1.4 mJy)</span>
+                                </p>
+
+                                <p class="d-flex flex-wrap mb-2">
+                                    <strong>Encoding Entropy:</strong>
+                                    <span class="ms-2">0.996244 (near maximum)</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row my-4">
+                        <div class="col-lg-12 col-12">
+                            <div class="custom-block bg-white">
+                                <h5 class="mb-4">Key Findings</h5>
+                                
+                                <ul class="list-unstyled">
+                                    <li class="mb-3">
+                                        <strong>1. Dual-Scale Pattern:</strong> Two encoding schemes point to objects at vastly different 
+                                        distance scales (492 ly vs 720 Mly), spanning 1.46 million orders of magnitude.
+                                    </li>
+                                    <li class="mb-3">
+                                        <strong>2. Consistent Radio Association:</strong> Both matched objects have associated radio sources, 
+                                        suggesting a consistent encoding pattern.
+                                    </li>
+                                    <li class="mb-3">
+                                        <strong>3. Statistical Significance:</strong> Probability of both matches occurring randomly is 
+                                        ~2.8×10⁻¹³ (extremely low).
+                                    </li>
+                                    <li class="mb-3">
+                                        <strong>4. Information-Theoretic Optimality:</strong> Diophantine v3 encoding achieves near-maximum 
+                                        entropy (0.996244), making it the most information-theoretically efficient encoding scheme tested.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row my-4">
+                        <div class="col-lg-12 col-12">
+                            <div class="custom-block bg-white">
+                                <h5 class="mb-4">Methodology</h5>
+                                
+                                <h6 class="mb-3">Signal Analysis Techniques</h6>
+                                <ol>
+                                    <li class="mb-2">
+                                        <strong>Logarithmic Encoding Analysis:</strong> Used base-3 logarithm and modular arithmetic to 
+                                        encode constants as binary bits.
+                                    </li>
+                                    <li class="mb-2">
+                                        <strong>Constant Ratio Analysis:</strong> Detected mathematical constants (PHI, LOG3, etc.) in 
+                                        ratios between consecutive values in the 3I/ATLAS data.
+                                    </li>
+                                    <li class="mb-2">
+                                        <strong>Bit Structure Analysis:</strong> Decoded 37-bit coordinate structures from constant sequences.
+                                    </li>
+                                    <li class="mb-2">
+                                        <strong>Information-Theoretic Analysis:</strong> Evaluated encoding schemes using entropy calculations.
+                                    </li>
+                                </ol>
+
+                                <h6 class="mb-3 mt-4">Encoding Schemes Tested</h6>
+                                <ul>
+                                    <li><strong>Phi+Log3 Encoding:</strong> φ ratios + log₃ transitions (entropy: 0.484256)</li>
+                                    <li><strong>Diophantine v3 Encoding:</strong> Logarithmic encoding using base-3 log and modular arithmetic (entropy: 0.996244)</li>
+                                    <li><strong>Multiple bit-split schemes:</strong> 18/19, 19/18, 20/17, 17/20 bits for RA/Dec</li>
+                                </ul>
+
+                                <p class="text-muted mt-3">
+                                    <strong>Note on Terminology:</strong> The "Diophantine v3" encoding name is historical - it uses simple 
+                                    logarithmic and modular arithmetic operations, not Diophantine equation solving. The "(2,3) energy framework" 
+                                    terminology is our descriptive term for this encoding method, not a standard mathematical framework.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row my-4">
+                        <div class="col-lg-12 col-12">
+                            <div class="custom-block bg-white">
+                                <h5 class="mb-4">Repository and Data</h5>
+                                
+                                <p class="mb-3">
+                                    <strong>Analysis Repository:</strong>
+                                    <a href="https://github.com/tylermaginnis/3I_Atlas_Independent_Analysis" target="_blank" class="ms-2">
+                                        https://github.com/tylermaginnis/3I_Atlas_Independent_Analysis
+                                    </a>
+                                </p>
+                                <p class="mb-3">
+                                    <small class="text-muted">
+                                        Complete analysis code, results, visualizations, and documentation are available in the repository.
+                                    </small>
+                                </p>
+
+                                <p class="mb-3">
+                                    <strong>Data Sources:</strong>
+                                </p>
+                                <ul>
+                                    <li>3I/ATLAS Data: <a href="https://3i-atlas.github.io/data.html" target="_blank">https://3i-atlas.github.io/data.html</a></li>
+                                    <li>HIP 21684 (HD 286941): SIMBAD, Gaia, Universe Guide</li>
+                                    <li>LEDA 1363602: NED (NASA/IPAC Extragalactic Database)</li>
+                                    <li>NVSS Radio Sources: NRAO VLA Sky Survey</li>
+                                </ul>
+
+                                <p class="mb-3 mt-4">
+                                    <strong>Visualizations:</strong> Sky maps and comparison plots are available in the repository's 
+                                    <code>visualizations/</code> directory.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row my-4">
+                        <div class="col-lg-12 col-12">
+                            <div class="custom-block bg-white">
+                                <h5 class="mb-4">Important Disclaimers</h5>
+                                
+                                <ol>
+                                    <li class="mb-2">
+                                        <strong>Interpretations are speculative:</strong> The interpretations presented here are speculative 
+                                        and require further verification.
+                                    </li>
+                                    <li class="mb-2">
+                                        <strong>Statistical significance:</strong> While the probability of random matches is extremely 
+                                        low (~2.8×10⁻¹³), this does not prove intentional encoding.
+                                    </li>
+                                    <li class="mb-2">
+                                        <strong>Methodology limitations:</strong> The encoding scheme assumptions (37 bits, bit splits) 
+                                        are based on information-theoretic analysis but may not be unique.
+                                    </li>
+                                    <li class="mb-2">
+                                        <strong>Terminology clarification:</strong> The "Diophantine v3" encoding uses simple logarithmic 
+                                        and modular arithmetic, not Diophantine equation solving.
+                                    </li>
+                                    <li class="mb-2">
+                                        <strong>Open to revision:</strong> This analysis is preliminary and subject to revision based on 
+                                        community feedback.
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row my-4">
+                        <div class="col-lg-12 col-12">
+                            <div class="custom-block bg-white">
+                                <h5 class="mb-4">References</h5>
+                                
+                                <ol>
+                                    <li class="mb-2">
+                                        <strong>Seligman et al. (2025):</strong> "Discovery and Preliminary Characterization of a Third 
+                                        Interstellar Object: 3I/ATLAS" - 
+                                        <a href="https://arxiv.org/abs/2507.02757" target="_blank">arXiv:2507.02757</a>
+                                    </li>
+                                    <li class="mb-2">
+                                        <strong>3I/ATLAS Official Repository:</strong> 
+                                        <a href="https://github.com/3I-ATLAS/3I-ATLAS.github.io" target="_blank">GitHub</a>
+                                    </li>
+                                    <li class="mb-2">
+                                        <strong>3I/ATLAS Data Portal:</strong> 
+                                        <a href="https://3i-atlas.github.io/data.html" target="_blank">https://3i-atlas.github.io/data.html</a>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+
+                    <footer class="site-footer">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12 col-12">
+                                    <p class="copyright-text">Copyright © 3I/ATLAS 2048
+                                    - Design: <a rel="sponsored" href="https://www.tooplate.com" target="_blank">Tooplate</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                </main>
+            </div>
+        </div>
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/custom.js"></script>
+    </body>
+</html>
+
